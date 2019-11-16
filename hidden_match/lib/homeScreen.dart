@@ -1,5 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'dart:async';
+import 'dart:convert';
+import 'package:hidden_match/globals.dart' as globals;
 
 class HomeScreen extends StatelessWidget {
   static Route<dynamic> route(String mensaje) {
@@ -21,6 +26,7 @@ class HomeScreen extends StatelessWidget {
           ),
           body: Center(
             child: _buildButtons(),
+
           ),
       )
 
@@ -41,8 +47,25 @@ Widget _buildButtons() {
   );
 }
 
-void _buttonPressed () {
-  Future<http.Response> fetchPost() {
-    return http.get('https://172.0.0.1:5000/mac=hotaaaaaal');
+void _buttonPressed () async {
+  var mac = '0:0:0:0:0:0';
+  var hotal;
+  globals.isPressed ? globals.isPressed = false : globals.isPressed = true;
+  Duration time = new Duration(seconds: 5);
+  while (globals.isPressed) {
+    hotal = await fetchPost(mac);
+    print(hotal);
+    sleep(time);
   }
 }
+
+Future fetchPost(mac) {
+  String countryUrl = 'http://hidden-match.herokuapp.com/$mac/';
+  var hotal = http
+      .get(countryUrl)
+      .then((response) => jsonDecode(response.body)['response'])
+      .catchError((error) => throw(error));
+
+  return hotal;
+}
+

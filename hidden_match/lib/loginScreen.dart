@@ -151,8 +151,8 @@ class _LoginScreenState extends State<LoginScreen>
 
 class AnimatedLogo extends AnimatedWidget {
   // Maneja los Tween estáticos debido a que estos no cambian.
-  static final _opacityTween = Tween<double>(begin: 0.5, end: 1.0);
-  static final _sizeTween = Tween<double>(begin: 125.0, end: 150.0);
+  static final _opacityTween = Tween<double>(begin: 1.0, end: 1.0);
+  static final _sizeTween = Tween<double>(begin: 150.0, end: 170.0);
 
   AnimatedLogo({Key key, Animation<double> animation})
       : super(key: key, listenable: animation);
@@ -165,13 +165,12 @@ class AnimatedLogo extends AnimatedWidget {
         margin: EdgeInsets.symmetric(vertical: 10.0),
         height: _sizeTween.evaluate(animation), // Aumenta la altura
         width: _sizeTween.evaluate(animation), // Aumenta el ancho
-        child:  DecoratedBox(
-          decoration: BoxDecoration(
+        decoration: new BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('graphics/logo.png'),
+            image: new AssetImage(
+                'assets/images/logo.png'),
           ),
         ),
-      ),
       ),
     );
   }

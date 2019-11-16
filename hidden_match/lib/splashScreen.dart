@@ -32,24 +32,23 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: Colors.grey[600],
       child: Column(
         children: <Widget>[
           SizedBox(height: 100.0,),
-          Flexible(
-            flex: 2,
-            child: SafeArea(
-              child: FractionallySizedBox(
-                widthFactor: 0.7,
-                child: Image.asset('assets/argelbejarano.png'),
-              ),
-            ),
-          ),
           Text(
             'Welcome',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18.0,
+            ),
+          ),
+          Flexible(
+            flex: 2,
+            child: SafeArea(
+              child: FractionallySizedBox(
+                widthFactor: 0.7,
+                child: Image.asset('assets/images/logo.png'),
+              ),
             ),
           ),
           Flexible(
