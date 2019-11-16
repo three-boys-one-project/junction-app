@@ -20,19 +20,29 @@ class HomeScreen extends StatelessWidget {
             title: Text("Passar Mierdas"),
           ),
           body: Center(
-            floatingActionButton: FloatingActionButton(
-              child: Text("Hotal"),
-              onPressed: Future<http.Response> fetchPost() {
-                            return http.get('https://jsonplaceholder.typicode.com/posts/1');
-                          },
-            ),
+            child: _buildButtons(),
           ),
       )
 
     );
   }
+}
 
+Widget _buildButtons() {
+  return new Container(
+    child: new Column(
+      children: <Widget>[
+        new RaisedButton(
+          child: new Text('Hotal!'),
+          onPressed: _buttonPressed,
+        ),
+      ],
+    ),
+  );
+}
+
+void _buttonPressed () {
   Future<http.Response> fetchPost() {
-    return http.get('https://jsonplaceholder.typicode.com/posts/1');
+    return http.get('https://172.0.0.1:5000/mac=hotaaaaaal');
   }
 }
