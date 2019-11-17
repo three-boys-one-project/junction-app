@@ -31,15 +31,17 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      child: Column(
+    return Scaffold(
+      backgroundColor: Colors.orange,
+      body: Column(
         children: <Widget>[
-          SizedBox(height: 100.0,),
+          SizedBox(height: 100.0, ),
           Text(
             'Welcome',
             style: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 18.0,
+              color: Colors.white,
             ),
           ),
           Flexible(
@@ -58,7 +60,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 padding: const EdgeInsets.symmetric(vertical: 64.0, horizontal: 16.0),
                 alignment: Alignment.bottomCenter,
                 child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                 ),
               ),
             ),

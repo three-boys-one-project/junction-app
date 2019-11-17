@@ -57,6 +57,7 @@ class _LoginScreenState extends State<LoginScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: Colors.orange,
       body: _logueado ? HomeScreen(mensaje: mensaje) : loginForm(),
 //      body: loginForm(),
     );
@@ -95,11 +96,12 @@ class _LoginScreenState extends State<LoginScreen>
                     labelText: 'Email Adress',
                     counterText: '',
                     icon:
-                    Icon(Icons.email, size: 32.0, color: Colors.purple[800]),
+                    Icon(Icons.email, size: 32.0, color: Colors.white),
                   ),
                   onSaved: (text) => _correo = text,
                 ),
                 TextFormField(
+                  obscureText: true,
                   validator: (text) {
                     if (text.length == 0) {
                       return "The field password is required";
@@ -117,7 +119,7 @@ class _LoginScreenState extends State<LoginScreen>
                     hintText: 'Put your password',
                     labelText: 'Password',
                     counterText: '',
-                    icon: Icon(Icons.lock, size: 32.0, color: Colors.purple[800]),
+                    icon: Icon(Icons.lock, size: 32.0, color: Colors.white),
                   ),
                   onSaved: (text) => _contrasena = text,
                 ),
@@ -137,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen>
                   icon: Icon(
                     Icons.arrow_forward,
                     size: 42.0,
-                    color: Colors.purple[800],
+                    color: Colors.white,
                   ),
                 )
               ],
